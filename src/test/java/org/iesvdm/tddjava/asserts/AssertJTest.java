@@ -1,29 +1,50 @@
 package org.iesvdm.tddjava.asserts;
 
+//Hay varias versiones de JUNIT: 3, 4 y 5
+
+//JUNIT 5 --> Tiene soporte para JAVA 8 fundamentalmente LAMBDAS
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+//alt+insert para constructores, equals, getters...
+
+//IMPORT STATIC, ¿que hace? --> es código que no necesita de un objeto para instanciarlo - ejecutarse -
+//En cierta forma tiene una naturaleza global.
+
+//En este caso se está trayendo todo el código estático de la clase Assertions
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+
+
+//Existe la convención de que las Clases se llaman con el sufijo test
+//NombreCosaAterstearTest
 public class AssertJTest {
 
-    void whenBooleanIsTrue() {
-        assertThat(1 == 1).isTrue();
+
+    //La clase de Test tiene una seria de métodos que implementan pruebas parciales de interás
+    // Es fundamental que el método esté anotado con la anotación @Test
+
+    @Test
+    void whenBooleanIsTrue()
+    {
+        //El assert es una afirmación que debe cumplirse para que este test sea válido
+        assertTrue(1 == 1);
     }
 
     @Test
     void whenBooleanIsFalse() {
         boolean flag =false;
-        assertThat(flag).isFalse();
+        assertFalse(flag);
     }
 
     @Test
     void whenObjectIsNull() {
         Object nullObj = null;
-        assertThat(nullObj).isNull();
+        // Comprueba que la referencia apunta a null
+        assertNull(nullObj);
 
     }
 
@@ -31,8 +52,8 @@ public class AssertJTest {
     @Test
     void whenObjectIsNotNull() {
         Object obj = new Object();
-
-        assertThat(obj).isNotNull();
+        //Comprueba que la referencia no apunta a null
+        assertNotNull(obj);
 
     }
 
@@ -42,7 +63,9 @@ public class AssertJTest {
         final Integer ACTUAL = 9;
         final Integer EXPECTED = 9;
 
-        assertThat(ACTUAL).isEqualTo(EXPECTED);
+        assertEquals(ACTUAL, EXPECTED);
+        //Siempre que quiero comparar igualdad de objetos(no digo primitivos) habría que hacerlo con .Equals
+
 
     }
 
@@ -50,8 +73,8 @@ public class AssertJTest {
     void shouldReferToSameObject() {
         final Object ACTUAL = 9;
         final Object EXPECTED = ACTUAL;
-
-        assertThat(ACTUAL).isSameAs(EXPECTED);
+        //El same compara las referencias de Object
+        assertSame(ACTUAL, EXPECTED);
 
     }
 
@@ -60,7 +83,7 @@ public class AssertJTest {
         final Object ACTUAL = 9;
         final Object EXPECTED = ACTUAL;
 
-        assertThat(ACTUAL).isNotSameAs(new Object());
+        assertNotSame(ACTUAL, EXPECTED);
 
     }
 

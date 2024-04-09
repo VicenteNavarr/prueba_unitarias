@@ -34,7 +34,10 @@ public class Connect4TDDSpec {
     @Test
     public void whenTheGameStartsTheBoardIsEmpty() {
 
+        assertThat(tested.getNumberOfDiscs()).isEqualTo(0).withFailMessage("The number of disc must be 0");
+
     }
+
 
     /*
      * Players introduce discs on the top of the columns.
