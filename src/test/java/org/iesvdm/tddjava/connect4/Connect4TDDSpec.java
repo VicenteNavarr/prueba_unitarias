@@ -48,6 +48,9 @@ public class Connect4TDDSpec {
     @Test
     public void whenDiscOutsideBoardThenRuntimeException() {
 
+        assertThrows(RuntimeException.class, () -> {});
+        assertThat(tested.getNumberOfDiscs()).isEqualTo(1).withFailMessage("The number of disc must be 1");
+
 
     }
 
