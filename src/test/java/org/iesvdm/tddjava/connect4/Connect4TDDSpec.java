@@ -48,6 +48,8 @@ public class Connect4TDDSpec {
     @Test
     public void whenDiscOutsideBoardThenRuntimeException() {
 
+        assertThrows(RuntimeException.class, () -> {});
+
 
     }
 
