@@ -104,12 +104,43 @@ public class Connect4TDDSpec {
     @Test
     public void whenAskedForCurrentPlayerTheOutputNotice() {
 
-
+        String currentPlayer = tested.getCurrentPlayer();
+        String mensajeOutput = String.format("Player %s turn%n");
+        assertThat(output.toString()).isEqualTo(mensajeOutput);
 
     }
 
     @Test
     public void whenADiscIsIntroducedTheBoardIsPrinted() {
+
+            tested.putDiscInColumn(0);
+//            System.out.println(output.toString());
+
+            String expected = """ 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              |R| | | | | | | 
+                              """;
+
+            assertThat(output.toString()).isEqualTo(expected);
+
+
+        tested.putDiscInColumn(0);
+
+        String expected2 = """ 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              | | | | | | | | 
+                              |G| | | | | | | 
+                              |R| | | | | | | 
+                              """;
+
+        assertThat(output.toString()).isEqualTo(expected+expected2);
+
 
     }
 
@@ -120,10 +151,21 @@ public class Connect4TDDSpec {
     @Test
     public void whenTheGameStartsItIsNotFinished() {
 
+
+
+            assertThat(tested.isFinished()).isEqualTo(false);
+
+
+
+
     }
 
     @Test
     public void whenNoDiscCanBeIntroducedTheGamesIsFinished() {
+
+
+            assertThat(tested.isFinished()).isEqualTo(true);
+
 
     }
 
@@ -134,6 +176,8 @@ public class Connect4TDDSpec {
 
     @Test
     public void when4VerticalDiscsAreConnectedThenThatPlayerWins() {
+
+
 
     }
 
