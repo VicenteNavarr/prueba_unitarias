@@ -89,14 +89,25 @@ public class Location {
     }
 
     private int wrap(int point, int maxPoint) {
-        if (maxPoint > 0) {
+        /*if (maxPoint > 0) {
             if (point > maxPoint) {
                 return 1;
             } else if (point == 0) {
                 return maxPoint;
             }
         }
+        return point;*/
+
+
+            if (point > maxPoint) {
+                return 1;
+            } else if (point == 0) {
+                return maxPoint;
+            }
+
         return point;
+
+
     }
 
     public void turnLeft() {

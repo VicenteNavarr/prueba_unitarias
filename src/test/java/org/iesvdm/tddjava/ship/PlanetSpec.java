@@ -1,7 +1,7 @@
 package org.iesvdm.tddjava.ship;
 
 import org.testng.annotations.*;
-
+import static org.assertj.core.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +24,15 @@ public class PlanetSpec {
 
     public void whenInstantiatedThenMaxIsSet() {
 
+        //Comprobación de que al inicio, están todos los planetas
+        assertThat(planet.getMax()).isEqualTo(max);
+
     }
 
     public void whenInstantiatedThenObstaclesAreSet() {
+
+        //Comprobación de que están iniciaods los obstaculos
+        assertThat(planet.getObstacles()).containsExactlyElementsOf(obstacles);
 
     }
 

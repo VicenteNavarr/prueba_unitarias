@@ -2,7 +2,7 @@ package org.iesvdm.tddjava.ship;
 
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
-
+import static org.assertj.core.api.Assertions.*;
 @Test
 public class PointSpec {
 
@@ -17,9 +17,13 @@ public class PointSpec {
 
     public void whenInstantiatedThenXIsSet() {
 
+    assertThat(point.getX()).isEqualTo(x);
+
     }
 
     public void whenInstantiatedThenYIsSet() {
+
+        assertThat(point.getY()).isEqualTo(y);
 
     }
 
